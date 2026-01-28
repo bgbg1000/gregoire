@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>a</title>
+        <link rel="stylesheet" href="{{url_for('static' , filename='style.css') }}">
+        <script>
+            window.addEventListener('load', function() {
+                const result = "{{ result }}";
+                if (result === "false") {
+                    alert("Mauvaise réponse !");
+                } else if (result === "success") {
+                    alert("Bonne réponse !");
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Bienvenue</h1>
+        <form method="POST" action="#" class="form">
+            <input type="text" name="nombre" placeholder="Votre nombre..." id="nombre" required>
+        </form>
+    </body>
+</html>

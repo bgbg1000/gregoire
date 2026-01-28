@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>on parle de Flak</title>
+        <link rel="stylesheet" href="{{url_for('static' , filename='style.css') }}">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <header>
+            <h1>Bienvenue !</h1>
+        </header>
+        <section>
+            <div class="games">
+                <ul>
+                    {% for game in games %}
+                        <li>
+                            <button class="mon-bouton" onclick="window.location.href='/{{game}}'">{{game}}</button>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+
+    </body>
+</html>
