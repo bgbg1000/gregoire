@@ -7,7 +7,6 @@ def index ():
     games=["a","b","c"]
     return render_template("index.html", games=games)
 mb= int(random.randint(1,3))
-print(mb)
 @app.route("/a", methods=['GET', 'POST'])
 def a():
     
@@ -25,4 +24,5 @@ def a():
 if __name__ == "__main__":
 
     app.run()
+
 
