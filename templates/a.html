@@ -3,6 +3,8 @@
     <head>
         <title>a</title>
         <link rel="stylesheet" href="{{url_for('static' , filename='style.css') }}">
+        <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+        <meta name="theme-color" content="#000000">
         <script>
             window.addEventListener('load', function() {
                 const result = "{{ result }}";
@@ -20,4 +22,5 @@
             <input type="text" name="nombre" placeholder="Votre nombre..." id="nombre" required>
         </form>
     </body>
+
 </html>
