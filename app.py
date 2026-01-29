@@ -6,7 +6,7 @@ app = Flask(__name__)
 def index ():
     games=["a","b"]
     return render_template("index.html", games=games)
-mb= int(random.randint(1,3))
+mb= int(random.randint(1,10))
 @app.route("/a", methods=['GET', 'POST'])
 def a():
     
@@ -24,6 +24,7 @@ def a():
 if __name__ == "__main__":
 
     app.run()
+
 
 
 
