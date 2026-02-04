@@ -4,11 +4,11 @@ import random
 app = Flask(__name__)
 @app.route("/", methods=['GET', 'POST'])
 def index ():
-    games=["jeu_du_paf_eu_non_pif_👃","resoveur_equation"]
+    games=["a","resoveur_equation"]
     return render_template("index.html", games=games)
 mb= int(random.randint(1,9))
-@app.route("/jeu_du_paf_eu_non_pif_👃", methods=['GET', 'POST'])
-def jeu_du_paf_eu_non_pif_👃():
+@app.route("/a", methods=['GET', 'POST'])
+def a():
     
     global mb
     result = None
@@ -62,6 +62,7 @@ def res_equa():
 if __name__ == "__main__":
 
     app.run()
+
 
 
 
