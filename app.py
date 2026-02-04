@@ -20,9 +20,10 @@ def a():
             result = "false"
     return render_template("a.html", result=result)
 
-@app.route("/resolveur_equation", methods=[GET, POST]
+@app.route("/resolveur_equation", methods=[GET, POST])
 def res_equa():
-    eq = request.form['eq']
+    if request.method == "POST":
+        eq = request.form.get['eq']
     
     gauche, droite = eq.split("=")
 
@@ -32,7 +33,8 @@ def res_equa():
 
     # on teste avec x = 1 et x = 0 pour trouver a et b
     def calc(expr, x):
-        return eval(expr)
+        return eval(expr, {"x": x})
+
 
     g1 = calc(gauche, 1)
     g0 = calc(gauche, 0)
@@ -62,6 +64,7 @@ def res_equa():
 if __name__ == "__main__":
 
     app.run()
+
 
 
 
