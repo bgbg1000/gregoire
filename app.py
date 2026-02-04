@@ -4,7 +4,7 @@ import random
 app = Flask(__name__)
 @app.route("/", methods=['GET', 'POST'])
 def index ():
-    games=["jeu du paf et non pif 👃","resoveur d'équation"]
+    games=["jeu du paf et non pif 👃","resoveur_equation"]
     return render_template("index.html", games=games)
 mb= int(random.randint(1,9))
 @app.route("/jeu du pif", methods=['GET', 'POST'])
@@ -62,6 +62,7 @@ def res_equa():
 if __name__ == "__main__":
 
     app.run()
+
 
 
 
