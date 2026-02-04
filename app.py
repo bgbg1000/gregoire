@@ -20,55 +20,49 @@ def a():
             result = "false"
     return render_template("a.html", result=result)
 
-@app.route("/resolveur_equation", methods=[GET, POST])
+@app.route("/resolveur_equation", methods=["GET", "POST"])
 def res_equa():
     x = None
     erreur = None
 
     if request.method == "POST":
-        eq = request.form.get['eq']
-    
-    gauche, droite = eq.split("=")
+        eq = request.form.get("eq")
 
-    # remplacer x par *x pour Python
-    gauche = gauche.replace("x", "*x")
-    droite = droite.replace("x", "*x")
+        gauche, droite = eq.split("=")
 
-    # on teste avec x = 1 et x = 0 pour trouver a et b
-    def calc(expr, x):
-        return eval(expr, {"x": x})
+        gauche = gauche.replace("x", "*x")
+        droite = droite.replace("x", "*x")
 
+        def calc(expr, x):
+            return eval(expr, {"x": x})
 
-    g1 = calc(gauche, 1)
-    g0 = calc(gauche, 0)
-    d1 = calc(droite, 1)
-    d0 = calc(droite, 0)
+        g1 = calc(gauche, 1)
+        g0 = calc(gauche, 0)
+        d1 = calc(droite, 1)
+        d0 = calc(droite, 0)
 
-    a = g1 - g0
-    b = g0
-    c = d1 - d0
-    d = d0
+        a = g1 - g0
+        b = g0
+        c = d1 - d0
+        d = d0
 
-    A = a - c
-    B = d - b
+        A = a - c
+        B = d - b
 
-    if A == 0:
-        print("Aucune solution")
-    else:
-        x = B / A
+        if A == 0:
+            erreur = "Aucune solution"
+        else:
+            x = B / A
 
-    else:
-        x = B / A
+    return render_template("b.html", x=x, erreur=erreur)
 
-    return render_template("b.html", x=x)
-
-    
 
     
 
 if __name__ == "__main__":
 
     app.run()
+
 
 
 
