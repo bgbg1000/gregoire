@@ -7,9 +7,18 @@
     </head>
     <body>
         <h1>eqations</h1>
-        <form method="POST" action="#" class="form">
-            <input type="text" name="x" placeholder="Votre equation..." id="x" required>
+        <form method="post">
+            <input name="eq" placeholder="12x + 3 * 4 = 5x">
+            <button>Résoudre</button>
         </form>
+
+{% if x is not none %}
+<p>Solution : x = {{ x }}</p>
+{% endif %}
+
+{% if erreur %}
+<p>{{ erreur }}</p>
+{% endif %}
     </body>
 </html>
         
