@@ -22,6 +22,9 @@ def a():
 
 @app.route("/resolveur_equation", methods=[GET, POST])
 def res_equa():
+    x = None
+    erreur = None
+
     if request.method == "POST":
         eq = request.form.get['eq']
     
@@ -50,12 +53,14 @@ def res_equa():
     B = d - b
 
     if A == 0:
-        else:
-            print("Aucune solution")
+        print("Aucune solution")
     else:
         x = B / A
 
-    retur render_template("b.html", x=x)
+    else:
+        x = B / A
+
+    return render_template("b.html", x=x)
 
     
 
@@ -64,6 +69,7 @@ def res_equa():
 if __name__ == "__main__":
 
     app.run()
+
 
 
 
